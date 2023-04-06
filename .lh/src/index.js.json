@@ -1,0 +1,698 @@
+{
+    "sourceFile": "src/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 170,
+            "patches": [
+                {
+                    "date": 1679918129053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679918153959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,8 @@\n+import React from 'react';\r\n+import ReactDOM from 'react-dom/client';\r\n+import './index.css';\r\n+\r\n class Square extends React.Component {\r\n     render() {\r\n       return (\r\n         <button className=\"square\">\r\n"
+                },
+                {
+                    "date": 1679919037750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,11 @@\n   }\r\n   \r\n   class Board extends React.Component {\r\n     renderSquare(i) {\r\n-      return <Square />;\r\n+      return <Square value={i}/>;\r\n     }\r\n+\r\n   \r\n     render() {\r\n       const status = 'Next player: X';\r\n   \r\n"
+                },
+                {
+                    "date": 1679919069248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n class Square extends React.Component {\r\n     render() {\r\n       return (\r\n         <button className=\"square\">\r\n-          {/* TODO */}\r\n+          {this.props.value}\r\n         </button>\r\n       );\r\n     }\r\n   }\r\n"
+                },
+                {
+                    "date": 1679919233213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n class Square extends React.Component {\r\n     render() {\r\n       return (\r\n-        <button className=\"square\">\r\n+        <button className=\"square\" onClick={function(){console.log('click');}}>\r\n           {this.props.value}\r\n         </button>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1679919327554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n class Square extends React.Component {\r\n     render() {\r\n       return (\r\n-        <button className=\"square\" onClick={function(){console.log('click');}}>\r\n+        <button className=\"square\" onClick={()=>console.log('click')}>\r\n           {this.props.value}\r\n         </button>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1679919335137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n class Square extends React.Component {\r\n     render() {\r\n       return (\r\n-        <button className=\"square\" onClick={()=>console.log('click')}>\r\n+        <button className=\"square\" onClick={()=>console.log('click1')}>\r\n           {this.props.value}\r\n         </button>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1679919341844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n class Square extends React.Component {\r\n     render() {\r\n       return (\r\n-        <button className=\"square\" onClick={()=>console.log('click1')}>\r\n+        <button className=\"square\" onClick={()=>console.log('click')}>\r\n           {this.props.value}\r\n         </button>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1679919367129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n class Square extends React.Component {\r\n     render() {\r\n       return (\r\n-        <button className=\"square\" onClick={()=>console.log('click')}>\r\n+        <button className=\"square\" onClick={console.log('click')}>\r\n           {this.props.value}\r\n         </button>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1679919382493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n class Square extends React.Component {\r\n     render() {\r\n       return (\r\n-        <button className=\"square\" onClick={console.log('click')}>\r\n+        <button className=\"square\" onClick={()=>console.log('click')}>\r\n           {this.props.value}\r\n         </button>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1679919462563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,15 @@\n import ReactDOM from 'react-dom/client';\r\n import './index.css';\r\n \r\n class Square extends React.Component {\r\n+    constructor(props){\r\n+        super(props);\r\n+        this.state = {\r\n+            value:null;\r\n+        }\r\n+    }\r\n+\r\n     render() {\r\n       return (\r\n         <button className=\"square\" onClick={()=>console.log('click')}>\r\n           {this.props.value}\r\n"
+                },
+                {
+                    "date": 1679919475198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,10 @@\n class Square extends React.Component {\r\n     constructor(props){\r\n         super(props);\r\n         this.state = {\r\n-            value:null;\r\n-        }\r\n+            value:null,\r\n+        };\r\n     }\r\n \r\n     render() {\r\n       return (\r\n"
+                },
+                {
+                    "date": 1679919515570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n class Square extends React.Component {\r\n     constructor(props){\r\n         super(props);\r\n         this.state = {\r\n-            value:null,\r\n+            value:null\r\n         };\r\n     }\r\n \r\n     render() {\r\n"
+                },
+                {
+                    "date": 1679919521944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n class Square extends React.Component {\r\n     constructor(props){\r\n         super(props);\r\n         this.state = {\r\n-            value:null\r\n+            value:null,\r\n         };\r\n     }\r\n \r\n     render() {\r\n"
+                },
+                {
+                    "date": 1679919626876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \r\n     render() {\r\n       return (\r\n         <button className=\"square\" onClick={()=>console.log('click')}>\r\n-          {this.props.value}\r\n+          {this.state.value}\r\n         </button>\r\n       );\r\n     }\r\n   }\r\n"
+                },
+                {
+                    "date": 1679919635299,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \r\n     render() {\r\n       return (\r\n         <button className=\"square\" onClick={()=>console.log('click')}>\r\n-          {this.state.value}\r\n+          {this.props.value}\r\n         </button>\r\n       );\r\n     }\r\n   }\r\n"
+                },
+                {
+                    "date": 1679919648955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \r\n     render() {\r\n       return (\r\n         <button className=\"square\" onClick={()=>console.log('click')}>\r\n-          {this.props.value}\r\n+          {this.state.value}\r\n         </button>\r\n       );\r\n     }\r\n   }\r\n"
+                },
+                {
+                    "date": 1679919707879,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     }\r\n \r\n     render() {\r\n       return (\r\n-        <button className=\"square\" onClick={()=>console.log('click')}>\r\n+        <button className=\"square\" onClick={()=>this.setState({value:'x'})}>\r\n           {this.state.value}\r\n         </button>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1679919731791,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,17 +4,17 @@\n \r\n class Square extends React.Component {\r\n     constructor(props){\r\n         super(props);\r\n-        this.state = {\r\n+        this.state123 = {\r\n             value:null,\r\n         };\r\n     }\r\n \r\n     render() {\r\n       return (\r\n-        <button className=\"square\" onClick={()=>this.setState({value:'x'})}>\r\n-          {this.state.value}\r\n+        <button className=\"square\" onClick={()=>this.setState123({value:'x'})}>\r\n+          {this.state123.value}\r\n         </button>\r\n       );\r\n     }\r\n   }\r\n"
+                },
+                {
+                    "date": 1679919760560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     }\r\n \r\n     render() {\r\n       return (\r\n-        <button className=\"square\" onClick={()=>this.setState123({value:'x'})}>\r\n+        <button className=\"square\" onClick={()=>this.setState({value:'x'})}>\r\n           {this.state123.value}\r\n         </button>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1679919768479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \r\n class Square extends React.Component {\r\n     constructor(props){\r\n         super(props);\r\n-        this.state123 = {\r\n+        this.state = {\r\n             value:null,\r\n         };\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1679919773900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \r\n     render() {\r\n       return (\r\n         <button className=\"square\" onClick={()=>this.setState({value:'x'})}>\r\n-          {this.state123.value}\r\n+          {this.state.value}\r\n         </button>\r\n       );\r\n     }\r\n   }\r\n"
+                },
+                {
+                    "date": 1679920380550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,12 @@\n     renderSquare(i) {\r\n       return <Square value={i}/>;\r\n     }\r\n \r\n-  \r\n+    constructor(props){\r\n+        \r\n+    }\r\n+\r\n     render() {\r\n       const status = 'Next player: X';\r\n   \r\n       return (\r\n"
+                },
+                {
+                    "date": 1679920433857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,12 @@\n       return <Square value={i}/>;\r\n     }\r\n \r\n     constructor(props){\r\n-        \r\n+        super(props);\r\n+        this.state={\r\n+            squares:Array(9).fill(null);\r\n+        }\r\n     }\r\n \r\n     render() {\r\n       const status = 'Next player: X';\r\n"
+                },
+                {
+                    "date": 1679920616258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,15 +20,15 @@\n   }\r\n   \r\n   class Board extends React.Component {\r\n     renderSquare(i) {\r\n-      return <Square value={i}/>;\r\n+      return <Square value={this.state.squares(i)}/>;\r\n     }\r\n \r\n     constructor(props){\r\n         super(props);\r\n         this.state={\r\n-            squares:Array(9).fill(null);\r\n+            squares:Array(9).fill(null),\r\n         }\r\n     }\r\n \r\n     render() {\r\n"
+                },
+                {
+                    "date": 1679920658127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n   }\r\n   \r\n   class Board extends React.Component {\r\n     renderSquare(i) {\r\n-      return <Square value={this.state.squares(i)}/>;\r\n+      return <Square value={this.state.squares[i]}/>;\r\n     }\r\n \r\n     constructor(props){\r\n         super(props);\r\n"
+                },
+                {
+                    "date": 1679920756556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,10 @@\n   }\r\n   \r\n   class Board extends React.Component {\r\n     renderSquare(i) {\r\n-      return <Square value={this.state.squares[i]}/>;\r\n+      return <Square value={this.state.squares[i]}\r\n+        onClick={()=>this.handleClick(i)}/>;\r\n     }\r\n \r\n     constructor(props){\r\n         super(props);\r\n"
+                },
+                {
+                    "date": 1679920863268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n     }\r\n \r\n     render() {\r\n       return (\r\n-        <button className=\"square\" onClick={()=>this.setState({value:'x'})}>\r\n-          {this.state.value}\r\n+        <button className=\"square\" onClick={()=>this.props.onClick()}>\r\n+          {this.props.value}\r\n         </button>\r\n       );\r\n     }\r\n   }\r\n"
+                },
+                {
+                    "date": 1679920989114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   \r\n   class Board extends React.Component {\r\n     renderSquare(i) {\r\n       return <Square value={this.state.squares[i]}\r\n-        onClick={()=>this.handleClick(i)}/>;\r\n+        onClick={()=>this.handleClick(i)}/>\r\n     }\r\n \r\n     constructor(props){\r\n         super(props);\r\n"
+                },
+                {
+                    "date": 1679921172556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,14 +2,14 @@\n import ReactDOM from 'react-dom/client';\r\n import './index.css';\r\n \r\n class Square extends React.Component {\r\n-    constructor(props){\r\n-        super(props);\r\n-        this.state = {\r\n-            value:null,\r\n-        };\r\n-    }\r\n+    // constructor(props){\r\n+    //     super(props);\r\n+    //     this.state = {\r\n+    //         value:null,\r\n+    //     };\r\n+    // }\r\n \r\n     render() {\r\n       return (\r\n         <button className=\"square\" onClick={()=>this.props.onClick()}>\r\n@@ -24,8 +24,12 @@\n       return <Square value={this.state.squares[i]}\r\n         onClick={()=>this.handleClick(i)}/>\r\n     }\r\n \r\n+    handleClick(i){\r\n+        \r\n+    }\r\n+\r\n     constructor(props){\r\n         super(props);\r\n         this.state={\r\n             squares:Array(9).fill(null),\r\n"
+                },
+                {
+                    "date": 1679921209040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n         onClick={()=>this.handleClick(i)}/>\r\n     }\r\n \r\n     handleClick(i){\r\n-        \r\n+        const squares = this.state.squares.slice();\r\n     }\r\n \r\n     constructor(props){\r\n         super(props);\r\n"
+                },
+                {
+                    "date": 1679921279809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,10 @@\n     }\r\n \r\n     handleClick(i){\r\n         const squares = this.state.squares.slice();\r\n+        squares[i] = 'x';\r\n+        this.setState({squares:squares})；\r\n     }\r\n \r\n     constructor(props){\r\n         super(props);\r\n"
+                },
+                {
+                    "date": 1679921306828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \r\n     handleClick(i){\r\n         const squares = this.state.squares.slice();\r\n         squares[i] = 'x';\r\n-        this.setState({squares:squares})；\r\n+        this.setState({squares:squares});\r\n     }\r\n \r\n     constructor(props){\r\n         super(props);\r\n"
+                },
+                {
+                    "date": 1679922037039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,9 @@\n     constructor(props){\r\n         super(props);\r\n         this.state={\r\n             squares:Array(9).fill(null),\r\n+            xIsNext:true,\r\n         }\r\n     }\r\n \r\n     render() {\r\n"
+                },
+                {
+                    "date": 1679922098319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \r\n     handleClick(i){\r\n         const squares = this.state.squares.slice();\r\n         squares[i] = 'x';\r\n-        this.setState({squares:squares});\r\n+        this.setState({squares:squares,xIsNext:!this.state.xIsNext});\r\n     }\r\n \r\n     constructor(props){\r\n         super(props);\r\n"
+                },
+                {
+                    "date": 1679922104681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n \r\n     handleClick(i){\r\n         const squares = this.state.squares.slice();\r\n         squares[i] = 'x';\r\n-        this.setState({squares:squares,xIsNext:!this.state.xIsNext});\r\n+        this.setState({squares:squares,xIsNext:!this.state.xIsNext,});\r\n     }\r\n \r\n     constructor(props){\r\n         super(props);\r\n"
+                },
+                {
+                    "date": 1679922193282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     }\r\n \r\n     handleClick(i){\r\n         const squares = this.state.squares.slice();\r\n-        squares[i] = 'x';\r\n+        squares[i] = this.state.xIsNext? 'x' : 'O';\r\n         this.setState({squares:squares,xIsNext:!this.state.xIsNext,});\r\n     }\r\n \r\n     constructor(props){\r\n"
+                },
+                {
+                    "date": 1679922307678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n         }\r\n     }\r\n \r\n     render() {\r\n-      const status = 'Next player: X';\r\n+      const status = 'Next player: '+(this.state.xIsNext ? 'X':'0');\r\n   \r\n       return (\r\n         <div>\r\n           <div className=\"status\">{status}</div>\r\n"
+                },
+                {
+                    "date": 1679922315496,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n         }\r\n     }\r\n \r\n     render() {\r\n-      const status = 'Next player: '+(this.state.xIsNext ? 'X':'0');\r\n+      const status = 'Next player: '+(this.state.xIsNext ? 'X':'o');\r\n   \r\n       return (\r\n         <div>\r\n           <div className=\"status\">{status}</div>\r\n"
+                },
+                {
+                    "date": 1679922374922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     }\r\n \r\n     handleClick(i){\r\n         const squares = this.state.squares.slice();\r\n-        squares[i] = this.state.xIsNext? 'x' : 'O';\r\n+        squares[i] = this.state.xIsNext? 'x' : 'o';\r\n         this.setState({squares:squares,xIsNext:!this.state.xIsNext,});\r\n     }\r\n \r\n     constructor(props){\r\n@@ -84,5 +84,26 @@\n   // ========================================\r\n   \r\n   const root = ReactDOM.createRoot(document.getElementById(\"root\"));\r\n   root.render(<Game />);\r\n+\r\n+\r\n+  function calculateWinner(squares) {\r\n+    const lines = [\r\n+      [0, 1, 2],\r\n+      [3, 4, 5],\r\n+      [6, 7, 8],\r\n+      [0, 3, 6],\r\n+      [1, 4, 7],\r\n+      [2, 5, 8],\r\n+      [0, 4, 8],\r\n+      [2, 4, 6],\r\n+    ];\r\n+    for (let i = 0; i < lines.length; i++) {\r\n+      const [a, b, c] = lines[i];\r\n+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {\r\n+        return squares[a];\r\n+      }\r\n+    }\r\n+    return null;\r\n+  }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1680064448800,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,10 +39,15 @@\n         }\r\n     }\r\n \r\n     render() {\r\n-      const status = 'Next player: '+(this.state.xIsNext ? 'X':'o');\r\n-  \r\n+      let status;\r\n+      const winner = calculateWinner(this.state.squares);\r\n+      if(winner){\r\n+        status = 'Winner:'+winner;\r\n+      }else{\r\n+        status = 'Next player: '+(this.state.xIsNext ? 'X':'o');\r\n+      }\r\n       return (\r\n         <div>\r\n           <div className=\"status\">{status}</div>\r\n           <div className=\"board-row\">\r\n"
+                },
+                {
+                    "date": 1680065041682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     }\r\n \r\n     render() {\r\n       let status;\r\n-      const winner = calculateWinner(this.state.squares);\r\n+      let winner = calculateWinner(this.state.squares);\r\n       if(winner){\r\n         status = 'Winner:'+winner;\r\n       }else{\r\n         status = 'Next player: '+(this.state.xIsNext ? 'X':'o');\r\n"
+                },
+                {
+                    "date": 1680065073071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     }\r\n \r\n     render() {\r\n       let status;\r\n-      let winner = calculateWinner(this.state.squares);\r\n+      const winner = calculateWinner(this.state.squares);\r\n       if(winner){\r\n         status = 'Winner:'+winner;\r\n       }else{\r\n         status = 'Next player: '+(this.state.xIsNext ? 'X':'o');\r\n"
+                },
+                {
+                    "date": 1680065123499,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,8 +70,11 @@\n     }\r\n   }\r\n   \r\n   class Game extends React.Component {\r\n+    constructor(props){\r\n+      \r\n+    }\r\n     render() {\r\n       return (\r\n         <div className=\"game\">\r\n           <div className=\"game-board\">\r\n"
+                },
+                {
+                    "date": 1680065132739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -71,9 +71,9 @@\n   }\r\n   \r\n   class Game extends React.Component {\r\n     constructor(props){\r\n-      \r\n+      super(props);\r\n     }\r\n     render() {\r\n       return (\r\n         <div className=\"game\">\r\n"
+                },
+                {
+                    "date": 1680065144593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,8 +72,11 @@\n   \r\n   class Game extends React.Component {\r\n     constructor(props){\r\n       super(props);\r\n+      this.state = {\r\n+        \r\n+      }\r\n     }\r\n     render() {\r\n       return (\r\n         <div className=\"game\">\r\n"
+                },
+                {
+                    "date": 1680065194943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,9 +73,9 @@\n   class Game extends React.Component {\r\n     constructor(props){\r\n       super(props);\r\n       this.state = {\r\n-        \r\n+        history : [{squares:Array(9).fill(null)}],\r\n       }\r\n     }\r\n     render() {\r\n       return (\r\n"
+                },
+                {
+                    "date": 1680065207302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,8 +74,9 @@\n     constructor(props){\r\n       super(props);\r\n       this.state = {\r\n         history : [{squares:Array(9).fill(null)}],\r\n+        xIsNext:true,\r\n       }\r\n     }\r\n     render() {\r\n       return (\r\n"
+                },
+                {
+                    "date": 1680065300481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,25 +20,25 @@\n   }\r\n   \r\n   class Board extends React.Component {\r\n     renderSquare(i) {\r\n-      return <Square value={this.state.squares[i]}\r\n-        onClick={()=>this.handleClick(i)}/>\r\n+      return <Square value={this.props.squares[i]}\r\n+        onClick={()=>this.props.onClick(i)}/>\r\n     }\r\n \r\n     handleClick(i){\r\n         const squares = this.state.squares.slice();\r\n         squares[i] = this.state.xIsNext? 'x' : 'o';\r\n         this.setState({squares:squares,xIsNext:!this.state.xIsNext,});\r\n     }\r\n \r\n-    constructor(props){\r\n-        super(props);\r\n-        this.state={\r\n-            squares:Array(9).fill(null),\r\n-            xIsNext:true,\r\n-        }\r\n-    }\r\n+    // constructor(props){\r\n+    //     super(props);\r\n+    //     this.state={\r\n+    //         squares:Array(9).fill(null),\r\n+    //         xIsNext:true,\r\n+    //     }\r\n+    // }\r\n \r\n     render() {\r\n       let status;\r\n       const winner = calculateWinner(this.state.squares);\r\n"
+                },
+                {
+                    "date": 1680065422734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,8 +78,11 @@\n         xIsNext:true,\r\n       }\r\n     }\r\n     render() {\r\n+      const history = this.state.history;\r\n+      const current = history[history.length-1];\r\n+      const winner = calculateWinner(current.squares)\r\n       return (\r\n         <div className=\"game\">\r\n           <div className=\"game-board\">\r\n             <Board />\r\n"
+                },
+                {
+                    "date": 1680065473308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,8 +81,12 @@\n     render() {\r\n       const history = this.state.history;\r\n       const current = history[history.length-1];\r\n       const winner = calculateWinner(current.squares)\r\n+      let status;\r\n+      if(winner){\r\n+        status = 'Winner:'+winner;\r\n+      }\r\n       return (\r\n         <div className=\"game\">\r\n           <div className=\"game-board\">\r\n             <Board />\r\n"
+                },
+                {
+                    "date": 1680065543181,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -84,8 +84,10 @@\n       const winner = calculateWinner(current.squares)\r\n       let status;\r\n       if(winner){\r\n         status = 'Winner:'+winner;\r\n+      }else{\r\n+        status = 'Next player:'+(this.state.xIsNext ? 'x':'o');\r\n       }\r\n       return (\r\n         <div className=\"game\">\r\n           <div className=\"game-board\">\r\n"
+                },
+                {
+                    "date": 1680065589051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,9 +90,9 @@\n       }\r\n       return (\r\n         <div className=\"game\">\r\n           <div className=\"game-board\">\r\n-            <Board />\r\n+            <Board squares={current.squares} onClick={()=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{/* status */}</div>\r\n             <ol>{/* TODO */}</ol>\r\n"
+                },
+                {
+                    "date": 1680065707654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,13 +24,13 @@\n       return <Square value={this.props.squares[i]}\r\n         onClick={()=>this.props.onClick(i)}/>\r\n     }\r\n \r\n-    handleClick(i){\r\n-        const squares = this.state.squares.slice();\r\n-        squares[i] = this.state.xIsNext? 'x' : 'o';\r\n-        this.setState({squares:squares,xIsNext:!this.state.xIsNext,});\r\n-    }\r\n+    // handleClick(i){\r\n+    //     const squares = this.state.squares.slice();\r\n+    //     squares[i] = this.state.xIsNext? 'x' : 'o';\r\n+    //     this.setState({squares:squares,xIsNext:!this.state.xIsNext,});\r\n+    // }\r\n \r\n     // constructor(props){\r\n     //     super(props);\r\n     //     this.state={\r\n@@ -39,18 +39,18 @@\n     //     }\r\n     // }\r\n \r\n     render() {\r\n-      let status;\r\n-      const winner = calculateWinner(this.state.squares);\r\n-      if(winner){\r\n-        status = 'Winner:'+winner;\r\n-      }else{\r\n-        status = 'Next player: '+(this.state.xIsNext ? 'X':'o');\r\n-      }\r\n+      // let status;\r\n+      // const winner = calculateWinner(this.state.squares);\r\n+      // if(winner){\r\n+      //   status = 'Winner:'+winner;\r\n+      // }else{\r\n+      //   status = 'Next player: '+(this.state.xIsNext ? 'X':'o');\r\n+      // }\r\n       return (\r\n         <div>\r\n-          <div className=\"status\">{status}</div>\r\n+          {/* <div className=\"status\">{status}</div> */}\r\n           <div className=\"board-row\">\r\n             {this.renderSquare(0)}\r\n             {this.renderSquare(1)}\r\n             {this.renderSquare(2)}\r\n@@ -93,14 +93,19 @@\n           <div className=\"game-board\">\r\n             <Board squares={current.squares} onClick={()=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n-            <div>{/* status */}</div>\r\n+            <div>{status}</div>\r\n             <ol>{/* TODO */}</ol>\r\n           </div>\r\n         </div>\r\n       );\r\n     }\r\n+    handleClick(i){\r\n+      const squares = this.state.squares.slice();\r\n+      squares[i] = this.state.xIsNext? 'x' : 'o';\r\n+      this.setState({squares:squares,xIsNext:!this.state.xIsNext,});\r\n+    }\r\n   }\r\n   \r\n   // ========================================\r\n   \r\n"
+                },
+                {
+                    "date": 1680065746033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,8 +100,9 @@\n         </div>\r\n       );\r\n     }\r\n     handleClick(i){\r\n+      const history = this.state.history;\r\n       const squares = this.state.squares.slice();\r\n       squares[i] = this.state.xIsNext? 'x' : 'o';\r\n       this.setState({squares:squares,xIsNext:!this.state.xIsNext,});\r\n     }\r\n"
+                },
+                {
+                    "date": 1680065885175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -101,9 +101,14 @@\n       );\r\n     }\r\n     handleClick(i){\r\n       const history = this.state.history;\r\n-      const squares = this.state.squares.slice();\r\n+      const current = history[history.length-1];\r\n+      const squares = current.squares.slice();\r\n+      if(calculateWinner(squares) || squares[i]){\r\n+        return;\r\n+      }\r\n+\r\n       squares[i] = this.state.xIsNext? 'x' : 'o';\r\n       this.setState({squares:squares,xIsNext:!this.state.xIsNext,});\r\n     }\r\n   }\r\n"
+                },
+                {
+                    "date": 1680066069030,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,9 +108,12 @@\n         return;\r\n       }\r\n \r\n       squares[i] = this.state.xIsNext? 'x' : 'o';\r\n-      this.setState({squares:squares,xIsNext:!this.state.xIsNext,});\r\n+      this.setState({\r\n+        history:history.concat([{squares:squares,}]),\r\n+        xIsNext:!this.state.xIsNext,\r\n+      });\r\n     }\r\n   }\r\n   \r\n   // ========================================\r\n"
+                },
+                {
+                    "date": 1680066335668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,8 +81,19 @@\n     render() {\r\n       const history = this.state.history;\r\n       const current = history[history.length-1];\r\n       const winner = calculateWinner(current.squares)\r\n+\r\n+      const moves = history.map((step,move)=>{\r\n+        const desc = move?'Go to move #'+move:'Go to game start';\r\n+        return (\r\n+        <li>\r\n+          <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n+        </li>);\r\n+      }\r\n+\r\n+      );\r\n+\r\n       let status;\r\n       if(winner){\r\n         status = 'Winner:'+winner;\r\n       }else{\r\n"
+                },
+                {
+                    "date": 1680066350331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -87,13 +87,12 @@\n         const desc = move?'Go to move #'+move:'Go to game start';\r\n         return (\r\n         <li>\r\n           <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n-        </li>);\r\n-      }\r\n+        </li>\r\n+        );\r\n+      });\r\n \r\n-      );\r\n-\r\n       let status;\r\n       if(winner){\r\n         status = 'Winner:'+winner;\r\n       }else{\r\n"
+                },
+                {
+                    "date": 1680066362155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -104,9 +104,9 @@\n             <Board squares={current.squares} onClick={()=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n-            <ol>{/* TODO */}</ol>\r\n+            <ol>{moves}</ol>\r\n           </div>\r\n         </div>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1680066503864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,9 +100,9 @@\n       }\r\n       return (\r\n         <div className=\"game\">\r\n           <div className=\"game-board\">\r\n-            <Board squares={current.squares} onClick={()=>this.handleClick(i)}/>\r\n+            <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n             <ol>{moves}</ol>\r\n"
+                },
+                {
+                    "date": 1680069304730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -123,8 +123,12 @@\n         history:history.concat([{squares:squares,}]),\r\n         xIsNext:!this.state.xIsNext,\r\n       });\r\n     }\r\n+\r\n+    jumpTo(step){\r\n+      \r\n+    }\r\n   }\r\n   \r\n   // ========================================\r\n   \r\n"
+                },
+                {
+                    "date": 1680069355162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -125,9 +125,12 @@\n       });\r\n     }\r\n \r\n     jumpTo(step){\r\n-      \r\n+      this.setState({\r\n+        stepNumber: step,\r\n+        xIsNext: (step % 2) === 0,\r\n+      });\r\n     }\r\n   }\r\n   \r\n   // ========================================\r\n"
+                },
+                {
+                    "date": 1680069489913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -110,9 +110,9 @@\n         </div>\r\n       );\r\n     }\r\n     handleClick(i){\r\n-      const history = this.state.history;\r\n+      const history = this.state.history.slice(0,this.state.stepNumber+1);\r\n       const current = history[history.length-1];\r\n       const squares = current.squares.slice();\r\n       if(calculateWinner(squares) || squares[i]){\r\n         return;\r\n"
+                },
+                {
+                    "date": 1680069534112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -79,9 +79,9 @@\n       }\r\n     }\r\n     render() {\r\n       const history = this.state.history;\r\n-      const current = history[history.length-1];\r\n+      const current = history[this.state.stepNumber];\r\n       const winner = calculateWinner(current.squares)\r\n \r\n       const moves = history.map((step,move)=>{\r\n         const desc = move?'Go to move #'+move:'Go to game start';\r\n"
+                },
+                {
+                    "date": 1680069605290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -126,9 +126,9 @@\n     }\r\n \r\n     jumpTo(step){\r\n       this.setState({\r\n-        stepNumber: step,\r\n+        stepNumber:step,\r\n         xIsNext: (step % 2) === 0,\r\n       });\r\n     }\r\n   }\r\n"
+                },
+                {
+                    "date": 1680069951064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,8 +74,9 @@\n     constructor(props){\r\n       super(props);\r\n       this.state = {\r\n         history : [{squares:Array(9).fill(null)}],\r\n+        stepNumber:0,\r\n         xIsNext:true,\r\n       }\r\n     }\r\n     render() {\r\n"
+                },
+                {
+                    "date": 1680070144852,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -122,8 +122,9 @@\n       squares[i] = this.state.xIsNext? 'x' : 'o';\r\n       this.setState({\r\n         history:history.concat([{squares:squares,}]),\r\n         xIsNext:!this.state.xIsNext,\r\n+        stepNumber:history.length,\r\n       });\r\n     }\r\n \r\n     jumpTo(step){\r\n"
+                },
+                {
+                    "date": 1680070809200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,14 +72,15 @@\n   \r\n   class Game extends React.Component {\r\n     constructor(props){\r\n       super(props);\r\n-      this.state = {\r\n-        history : [{squares:Array(9).fill(null)}],\r\n-        stepNumber:0,\r\n-        xIsNext:true,\r\n-      }\r\n+     \r\n     }\r\n+    this.state = {\r\n+      history : [{squares:Array(9).fill(null)}],\r\n+      stepNumber:0,\r\n+      xIsNext:true,\r\n+    }\r\n     render() {\r\n       const history = this.state.history;\r\n       const current = history[this.state.stepNumber];\r\n       const winner = calculateWinner(current.squares)\r\n"
+                },
+                {
+                    "date": 1680070815593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n     constructor(props){\r\n       super(props);\r\n      \r\n     }\r\n-    this.state = {\r\n+   state = {\r\n       history : [{squares:Array(9).fill(null)}],\r\n       stepNumber:0,\r\n       xIsNext:true,\r\n     }\r\n"
+                },
+                {
+                    "date": 1680070874669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,12 +70,12 @@\n     }\r\n   }\r\n   \r\n   class Game extends React.Component {\r\n-    constructor(props){\r\n-      super(props);\r\n+    // constructor(props){\r\n+    //   super(props);\r\n      \r\n-    }\r\n+    // }\r\n    state = {\r\n       history : [{squares:Array(9).fill(null)}],\r\n       stepNumber:0,\r\n       xIsNext:true,\r\n"
+                },
+                {
+                    "date": 1680070946144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,17 +70,17 @@\n     }\r\n   }\r\n   \r\n   class Game extends React.Component {\r\n-    // constructor(props){\r\n-    //   super(props);\r\n-     \r\n-    // }\r\n-   state = {\r\n-      history : [{squares:Array(9).fill(null)}],\r\n-      stepNumber:0,\r\n-      xIsNext:true,\r\n+    constructor(props){\r\n+      super(props);\r\n+      this.state = {\r\n+        history : [{squares:Array(9).fill(null)}],\r\n+        stepNumber:0,\r\n+        xIsNext:true,\r\n+      }\r\n     }\r\n+\r\n     render() {\r\n       const history = this.state.history;\r\n       const current = history[this.state.stepNumber];\r\n       const winner = calculateWinner(current.squares)\r\n"
+                },
+                {
+                    "date": 1680071235301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -106,9 +106,9 @@\n             <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n-            <ol>{moves}</ol>\r\n+            <div>{moves}</div>\r\n           </div>\r\n         </div>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1680071249423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -106,9 +106,9 @@\n             <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n-            <div>{moves}</div>\r\n+            <ul>{moves}</ul>\r\n           </div>\r\n         </div>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1680071256599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -106,9 +106,9 @@\n             <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n-            <ul>{moves}</ul>\r\n+            <li>{moves}</li>\r\n           </div>\r\n         </div>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1680071268204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -106,9 +106,9 @@\n             <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n-            <li>{moves}</li>\r\n+            <ol>{moves}</ol>\r\n           </div>\r\n         </div>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1680071395187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -86,13 +86,14 @@\n       const winner = calculateWinner(current.squares)\r\n \r\n       const moves = history.map((step,move)=>{\r\n         const desc = move?'Go to move #'+move:'Go to game start';\r\n-        return (\r\n-        <li>\r\n-          <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n-        </li>\r\n-        );\r\n+        // return (\r\n+        // // <li>\r\n+        // //   <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n+        // // </li>\r\n+        // );\r\n+        return desc;\r\n       });\r\n \r\n       let status;\r\n       if(winner){\r\n"
+                },
+                {
+                    "date": 1680071462988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -86,14 +86,13 @@\n       const winner = calculateWinner(current.squares)\r\n \r\n       const moves = history.map((step,move)=>{\r\n         const desc = move?'Go to move #'+move:'Go to game start';\r\n-        // return (\r\n-        // // <li>\r\n-        // //   <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n-        // // </li>\r\n-        // );\r\n-        return desc;\r\n+        return (\r\n+          <li>\r\n+            <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n+          </li>\r\n+        );\r\n       });\r\n \r\n       let status;\r\n       if(winner){\r\n"
+                },
+                {
+                    "date": 1680072009593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,9 +115,9 @@\n     handleClick(i){\r\n       const history = this.state.history.slice(0,this.state.stepNumber+1);\r\n       const current = history[history.length-1];\r\n       const squares = current.squares.slice();\r\n-      if(calculateWinner(squares) || squares[i]){\r\n+      if(calculateWinner(squares) ){\r\n         return;\r\n       }\r\n \r\n       squares[i] = this.state.xIsNext? 'x' : 'o';\r\n"
+                },
+                {
+                    "date": 1680072068673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,9 +115,9 @@\n     handleClick(i){\r\n       const history = this.state.history.slice(0,this.state.stepNumber+1);\r\n       const current = history[history.length-1];\r\n       const squares = current.squares.slice();\r\n-      if(calculateWinner(squares) ){\r\n+      if(calculateWinner(squares) || squares[i]){\r\n         return;\r\n       }\r\n \r\n       squares[i] = this.state.xIsNext? 'x' : 'o';\r\n"
+                },
+                {
+                    "date": 1680072417663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -112,9 +112,9 @@\n         </div>\r\n       );\r\n     }\r\n     handleClick(i){\r\n-      const history = this.state.history.slice(0,this.state.stepNumber+1);\r\n+      const history = this.state.history.slice(0,this.state.stepNumber);\r\n       const current = history[history.length-1];\r\n       const squares = current.squares.slice();\r\n       if(calculateWinner(squares) || squares[i]){\r\n         return;\r\n"
+                },
+                {
+                    "date": 1680072433044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -112,9 +112,9 @@\n         </div>\r\n       );\r\n     }\r\n     handleClick(i){\r\n-      const history = this.state.history.slice(0,this.state.stepNumber);\r\n+      const history = this.state.history.slice(0,this.state.stepNumber+1);\r\n       const current = history[history.length-1];\r\n       const squares = current.squares.slice();\r\n       if(calculateWinner(squares) || squares[i]){\r\n         return;\r\n"
+                },
+                {
+                    "date": 1680072798640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,9 +102,9 @@\n       }\r\n       return (\r\n         <div className=\"game\">\r\n           <div className=\"game-board\">\r\n-            <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/>\r\n+            {/* <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/> */}\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n             <ol>{moves}</ol>\r\n"
+                },
+                {
+                    "date": 1680073007913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,9 +102,9 @@\n       }\r\n       return (\r\n         <div className=\"game\">\r\n           <div className=\"game-board\">\r\n-            {/* <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/> */}\r\n+            <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n             <ol>{moves}</ol>\r\n@@ -115,11 +115,11 @@\n     handleClick(i){\r\n       const history = this.state.history.slice(0,this.state.stepNumber+1);\r\n       const current = history[history.length-1];\r\n       const squares = current.squares.slice();\r\n-      if(calculateWinner(squares) || squares[i]){\r\n-        return;\r\n-      }\r\n+      // if(calculateWinner(squares) || squares[i]){\r\n+      //   return;\r\n+      // }\r\n \r\n       squares[i] = this.state.xIsNext? 'x' : 'o';\r\n       this.setState({\r\n         history:history.concat([{squares:squares,}]),\r\n"
+                },
+                {
+                    "date": 1680073034998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -115,11 +115,11 @@\n     handleClick(i){\r\n       const history = this.state.history.slice(0,this.state.stepNumber+1);\r\n       const current = history[history.length-1];\r\n       const squares = current.squares.slice();\r\n-      // if(calculateWinner(squares) || squares[i]){\r\n-      //   return;\r\n-      // }\r\n+      if(calculateWinner(squares) || squares[i]){\r\n+        return;\r\n+      }\r\n \r\n       squares[i] = this.state.xIsNext? 'x' : 'o';\r\n       this.setState({\r\n         history:history.concat([{squares:squares,}]),\r\n"
+                },
+                {
+                    "date": 1680074258107,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n       const current = history[this.state.stepNumber];\r\n       const winner = calculateWinner(current.squares)\r\n \r\n       const moves = history.map((step,move)=>{\r\n-        const desc = move?'Go to move #'+move:'Go to game start';\r\n+        const desc = move?'Go to move #'+move + :'Go to game start';\r\n         return (\r\n           <li>\r\n             <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n           </li>\r\n@@ -124,8 +124,9 @@\n       this.setState({\r\n         history:history.concat([{squares:squares,}]),\r\n         xIsNext:!this.state.xIsNext,\r\n         stepNumber:history.length,\r\n+        lastStep:i,\r\n       });\r\n     }\r\n \r\n     jumpTo(step){\r\n"
+                },
+                {
+                    "date": 1680074264801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,8 +76,10 @@\n       this.state = {\r\n         history : [{squares:Array(9).fill(null)}],\r\n         stepNumber:0,\r\n         xIsNext:true,\r\n+        lastStep:i,\r\n+\r\n       }\r\n     }\r\n \r\n     render() {\r\n"
+                },
+                {
+                    "date": 1680074270070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,10 +76,9 @@\n       this.state = {\r\n         history : [{squares:Array(9).fill(null)}],\r\n         stepNumber:0,\r\n         xIsNext:true,\r\n-        lastStep:i,\r\n-\r\n+        lastStep:-1,\r\n       }\r\n     }\r\n \r\n     render() {\r\n"
+                },
+                {
+                    "date": 1680074314830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,9 +76,8 @@\n       this.state = {\r\n         history : [{squares:Array(9).fill(null)}],\r\n         stepNumber:0,\r\n         xIsNext:true,\r\n-        lastStep:-1,\r\n       }\r\n     }\r\n \r\n     render() {\r\n@@ -86,9 +85,9 @@\n       const current = history[this.state.stepNumber];\r\n       const winner = calculateWinner(current.squares)\r\n \r\n       const moves = history.map((step,move)=>{\r\n-        const desc = move?'Go to move #'+move + :'Go to game start';\r\n+        const desc = move?'Go to move #'+move :'Go to game start';\r\n         return (\r\n           <li>\r\n             <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n           </li>\r\n@@ -125,9 +124,8 @@\n       this.setState({\r\n         history:history.concat([{squares:squares,}]),\r\n         xIsNext:!this.state.xIsNext,\r\n         stepNumber:history.length,\r\n-        lastStep:i,\r\n       });\r\n     }\r\n \r\n     jumpTo(step){\r\n"
+                },
+                {
+                    "date": 1680074435753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,9 +73,9 @@\n   class Game extends React.Component {\r\n     constructor(props){\r\n       super(props);\r\n       this.state = {\r\n-        history : [{squares:Array(9).fill(null)}],\r\n+        history : [{squares:Array(9).fill(null),lastSquareIndex:-1}],\r\n         stepNumber:0,\r\n         xIsNext:true,\r\n       }\r\n     }\r\n"
+                },
+                {
+                    "date": 1680074478079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -121,9 +121,9 @@\n       }\r\n \r\n       squares[i] = this.state.xIsNext? 'x' : 'o';\r\n       this.setState({\r\n-        history:history.concat([{squares:squares,}]),\r\n+        history:history.concat([{squares:squares,lastSquareIndex:i}]),\r\n         xIsNext:!this.state.xIsNext,\r\n         stepNumber:history.length,\r\n       });\r\n     }\r\n"
+                },
+                {
+                    "date": 1680074520174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,10 @@\n       const current = history[this.state.stepNumber];\r\n       const winner = calculateWinner(current.squares)\r\n \r\n       const moves = history.map((step,move)=>{\r\n-        const desc = move?'Go to move #'+move :'Go to game start';\r\n+        const desc = move? 'Go to move #'+move \r\n+        : 'Go to game start';\r\n         return (\r\n           <li>\r\n             <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n           </li>\r\n"
+                },
+                {
+                    "date": 1680074725197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n       const current = history[this.state.stepNumber];\r\n       const winner = calculateWinner(current.squares)\r\n \r\n       const moves = history.map((step,move)=>{\r\n-        const desc = move? 'Go to move #'+move \r\n+        const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(step.lastSquareIndex/3+1)+'行)'\r\n         : 'Go to game start';\r\n         return (\r\n           <li>\r\n             <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n"
+                },
+                {
+                    "date": 1680074896600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n       const current = history[this.state.stepNumber];\r\n       const winner = calculateWinner(current.squares)\r\n \r\n       const moves = history.map((step,move)=>{\r\n-        const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(step.lastSquareIndex/3+1)+'行)'\r\n+        const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3)+1)+'行)'\r\n         : 'Go to game start';\r\n         return (\r\n           <li>\r\n             <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n"
+                },
+                {
+                    "date": 1680075197272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n       const current = history[this.state.stepNumber];\r\n       const winner = calculateWinner(current.squares)\r\n \r\n       const moves = history.map((step,move)=>{\r\n-        const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3)+1)+'行)'\r\n+        const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3+1)+'行)'\r\n         : 'Go to game start';\r\n         return (\r\n           <li>\r\n             <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n"
+                },
+                {
+                    "date": 1680075202484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n       const current = history[this.state.stepNumber];\r\n       const winner = calculateWinner(current.squares)\r\n \r\n       const moves = history.map((step,move)=>{\r\n-        const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3+1)+'行)'\r\n+        const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3)+1)+'行)'\r\n         : 'Go to game start';\r\n         return (\r\n           <li>\r\n             <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n"
+                },
+                {
+                    "date": 1680075261693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -89,9 +89,9 @@\n         const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3)+1)+'行)'\r\n         : 'Go to game start';\r\n         return (\r\n           <li>\r\n-            <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n+            <button style={} onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n           </li>\r\n         );\r\n       });\r\n \r\n"
+                },
+                {
+                    "date": 1680075330629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -89,9 +89,9 @@\n         const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3)+1)+'行)'\r\n         : 'Go to game start';\r\n         return (\r\n           <li>\r\n-            <button style={} onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n+            <button style={{ fontWeight: 'bold' }} onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n           </li>\r\n         );\r\n       });\r\n \r\n"
+                },
+                {
+                    "date": 1680075403923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -87,9 +87,14 @@\n \r\n       const moves = history.map((step,move)=>{\r\n         const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3)+1)+'行)'\r\n         : 'Go to game start';\r\n+\r\n+        if(this.state.stepNumber === move + 1){\r\n+            \r\n+        }\r\n         return (\r\n+          \r\n           <li>\r\n             <button style={{ fontWeight: 'bold' }} onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n           </li>\r\n         );\r\n"
+                },
+                {
+                    "date": 1680075409726,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,8 +90,10 @@\n         : 'Go to game start';\r\n \r\n         if(this.state.stepNumber === move + 1){\r\n             \r\n+        }else{\r\n+          \r\n         }\r\n         return (\r\n           \r\n           <li>\r\n"
+                },
+                {
+                    "date": 1680075419029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -91,16 +91,16 @@\n \r\n         if(this.state.stepNumber === move + 1){\r\n             \r\n         }else{\r\n+          return (\r\n           \r\n+            <li>\r\n+              <button style={{ fontWeight: 'bold' }} onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n+            </li>\r\n+          );\r\n         }\r\n-        return (\r\n-          \r\n-          <li>\r\n-            <button style={{ fontWeight: 'bold' }} onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n-          </li>\r\n-        );\r\n+       \r\n       });\r\n \r\n       let status;\r\n       if(winner){\r\n"
+                },
+                {
+                    "date": 1680075426156,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -89,9 +89,14 @@\n         const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3)+1)+'行)'\r\n         : 'Go to game start';\r\n \r\n         if(this.state.stepNumber === move + 1){\r\n-            \r\n+          return (\r\n+          \r\n+            <li>\r\n+              <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n+            </li>\r\n+          );\r\n         }else{\r\n           return (\r\n           \r\n             <li>\r\n"
+                },
+                {
+                    "date": 1680075434600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,16 +90,14 @@\n         : 'Go to game start';\r\n \r\n         if(this.state.stepNumber === move + 1){\r\n           return (\r\n-          \r\n             <li>\r\n               <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n             </li>\r\n           );\r\n         }else{\r\n           return (\r\n-          \r\n             <li>\r\n               <button style={{ fontWeight: 'bold' }} onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n             </li>\r\n           );\r\n"
+                },
+                {
+                    "date": 1680075471873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -91,15 +91,15 @@\n \r\n         if(this.state.stepNumber === move + 1){\r\n           return (\r\n             <li>\r\n-              <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n+              <button style={{ fontWeight: 'bold' }} onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n             </li>\r\n           );\r\n         }else{\r\n           return (\r\n             <li>\r\n-              <button style={{ fontWeight: 'bold' }} onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n+              <button onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n             </li>\r\n           );\r\n         }\r\n        \r\n"
+                },
+                {
+                    "date": 1680075514899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -88,9 +88,9 @@\n       const moves = history.map((step,move)=>{\r\n         const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3)+1)+'行)'\r\n         : 'Go to game start';\r\n \r\n-        if(this.state.stepNumber === move + 1){\r\n+        if(this.state.stepNumber === move){\r\n           return (\r\n             <li>\r\n               <button style={{ fontWeight: 'bold' }} onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n             </li>\r\n"
+                },
+                {
+                    "date": 1680075843331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,28 +46,30 @@\n       //   status = 'Winner:'+winner;\r\n       // }else{\r\n       //   status = 'Next player: '+(this.state.xIsNext ? 'X':'o');\r\n       // }\r\n-      return (\r\n-        <div>\r\n-          {/* <div className=\"status\">{status}</div> */}\r\n-          <div className=\"board-row\">\r\n-            {this.renderSquare(0)}\r\n-            {this.renderSquare(1)}\r\n-            {this.renderSquare(2)}\r\n-          </div>\r\n-          <div className=\"board-row\">\r\n-            {this.renderSquare(3)}\r\n-            {this.renderSquare(4)}\r\n-            {this.renderSquare(5)}\r\n-          </div>\r\n-          <div className=\"board-row\">\r\n-            {this.renderSquare(6)}\r\n-            {this.renderSquare(7)}\r\n-            {this.renderSquare(8)}\r\n-          </div>\r\n-        </div>\r\n-      );\r\n+      // return (\r\n+      //   <div>\r\n+      //     {/* <div className=\"status\">{status}</div> */}\r\n+      //     <div className=\"board-row\">\r\n+      //       {this.renderSquare(0)}\r\n+      //       {this.renderSquare(1)}\r\n+      //       {this.renderSquare(2)}\r\n+      //     </div>\r\n+      //     <div className=\"board-row\">\r\n+      //       {this.renderSquare(3)}\r\n+      //       {this.renderSquare(4)}\r\n+      //       {this.renderSquare(5)}\r\n+      //     </div>\r\n+      //     <div className=\"board-row\">\r\n+      //       {this.renderSquare(6)}\r\n+      //       {this.renderSquare(7)}\r\n+      //       {this.renderSquare(8)}\r\n+      //     </div>\r\n+      //   </div>\r\n+      // );\r\n+\r\n+      return();\r\n     }\r\n   }\r\n   \r\n   class Game extends React.Component {\r\n"
+                },
+                {
+                    "date": 1680076103570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,10 +67,35 @@\n       //     </div>\r\n       //   </div>\r\n       // );\r\n \r\n-      return();\r\n+\r\n+      return(\r\n+        inSquere\r\n+      );\r\n     }\r\n+\r\n+    let inSquere = initSquare(){\r\n+      return\r\n+        \"<div>\r\n+          <div className=\"board-row\">\r\n+            {this.renderSquare(0)}\r\n+            {this.renderSquare(1)}\r\n+            {this.renderSquare(2)}\r\n+          </div>\r\n+          <div className=\"board-row\">\r\n+            {this.renderSquare(3)}\r\n+            {this.renderSquare(4)}\r\n+            {this.renderSquare(5)}\r\n+          </div>\r\n+          <div className=\"board-row\">\r\n+            {this.renderSquare(6)}\r\n+            {this.renderSquare(7)}\r\n+            {this.renderSquare(8)}\r\n+          </div>\r\n+        </div>\r\n+      \"\r\n+    }\r\n   }\r\n   \r\n   class Game extends React.Component {\r\n     constructor(props){\r\n"
+                },
+                {
+                    "date": 1680076199515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,15 +69,9 @@\n       // );\r\n \r\n \r\n       return(\r\n-        inSquere\r\n-      );\r\n-    }\r\n-\r\n-    let inSquere = initSquare(){\r\n-      return\r\n-        \"<div>\r\n+        <div>\r\n           <div className=\"board-row\">\r\n             {this.renderSquare(0)}\r\n             {this.renderSquare(1)}\r\n             {this.renderSquare(2)}\r\n@@ -92,10 +86,12 @@\n             {this.renderSquare(7)}\r\n             {this.renderSquare(8)}\r\n           </div>\r\n         </div>\r\n-      \"\r\n+      );\r\n     }\r\n+\r\n+    \r\n   }\r\n   \r\n   class Game extends React.Component {\r\n     constructor(props){\r\n"
+                },
+                {
+                    "date": 1680076399635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,8 +70,11 @@\n \r\n \r\n       return(\r\n         <div>\r\n+          for（let i=0;i<9;i++）{\r\n+\r\n+          }\r\n           <div className=\"board-row\">\r\n             {this.renderSquare(0)}\r\n             {this.renderSquare(1)}\r\n             {this.renderSquare(2)}\r\n@@ -89,8 +92,11 @@\n         </div>\r\n       );\r\n     }\r\n \r\n+    renderRow(){\r\n+      \r\n+    }\r\n     \r\n   }\r\n   \r\n   class Game extends React.Component {\r\n"
+                },
+                {
+                    "date": 1680076424580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,34 +68,14 @@\n       //   </div>\r\n       // );\r\n \r\n \r\n-      return(\r\n-        <div>\r\n-          for（let i=0;i<9;i++）{\r\n-\r\n-          }\r\n-          <div className=\"board-row\">\r\n-            {this.renderSquare(0)}\r\n-            {this.renderSquare(1)}\r\n-            {this.renderSquare(2)}\r\n-          </div>\r\n-          <div className=\"board-row\">\r\n-            {this.renderSquare(3)}\r\n-            {this.renderSquare(4)}\r\n-            {this.renderSquare(5)}\r\n-          </div>\r\n-          <div className=\"board-row\">\r\n-            {this.renderSquare(6)}\r\n-            {this.renderSquare(7)}\r\n-            {this.renderSquare(8)}\r\n-          </div>\r\n-        </div>\r\n-      );\r\n+      return(this.renderRows);\r\n+        \r\n     }\r\n \r\n     renderRow(){\r\n-      \r\n+      for\r\n     }\r\n     \r\n   }\r\n   \r\n"
+                },
+                {
+                    "date": 1680076429743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,13 +68,13 @@\n       //   </div>\r\n       // );\r\n \r\n \r\n-      return(this.renderRows);\r\n+      return(this.renderRows());\r\n         \r\n     }\r\n \r\n-    renderRow(){\r\n+    renderRows(){\r\n       for\r\n     }\r\n     \r\n   }\r\n"
+                },
+                {
+                    "date": 1680076502130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,9 +73,11 @@\n         \r\n     }\r\n \r\n     renderRows(){\r\n-      for\r\n+      for(let i=0; i<3; i++){\r\n+        \r\n+      }\r\n     }\r\n     \r\n   }\r\n   \r\n"
+                },
+                {
+                    "date": 1680076524445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,10 +73,11 @@\n         \r\n     }\r\n \r\n     renderRows(){\r\n+      let squares=[];\r\n       for(let i=0; i<3; i++){\r\n-        \r\n+\r\n       }\r\n     }\r\n     \r\n   }\r\n"
+                },
+                {
+                    "date": 1680076759347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,15 @@\n \r\n     renderRows(){\r\n       let squares=[];\r\n       for(let i=0; i<3; i++){\r\n-\r\n+        squares.push(\r\n+          <div className=\"board-row\">\r\n+            for(let j=0;j<3;j++){\r\n+              \r\n+            }\r\n+          </div>    \r\n+        );\r\n       }\r\n     }\r\n     \r\n   }\r\n"
+                },
+                {
+                    "date": 1680076828542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,14 +74,12 @@\n     }\r\n \r\n     renderRows(){\r\n       let squares=[];\r\n-      for(let i=0; i<3; i++){\r\n+      for(let i=0; i<3; i++){1\r\n         squares.push(\r\n           <div className=\"board-row\">\r\n-            for(let j=0;j<3;j++){\r\n-              \r\n-            }\r\n+            {}\r\n           </div>    \r\n         );\r\n       }\r\n     }\r\n"
+                },
+                {
+                    "date": 1680076846161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -82,8 +82,18 @@\n           </div>    \r\n         );\r\n       }\r\n     }\r\n+    renderCols(){\r\n+      let squares=[];\r\n+      for(let i=0; i<3; i++){1\r\n+        squares.push(\r\n+          <div className=\"board-row\">\r\n+            {}\r\n+          </div>    \r\n+        );\r\n+      }\r\n+    }\r\n     \r\n   }\r\n   \r\n   class Game extends React.Component {\r\n"
+                },
+                {
+                    "date": 1680076858174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -82,9 +82,9 @@\n           </div>    \r\n         );\r\n       }\r\n     }\r\n-    renderCols(){\r\n+    renderCols(rowIndex){\r\n       let squares=[];\r\n       for(let i=0; i<3; i++){1\r\n         squares.push(\r\n           <div className=\"board-row\">\r\n"
+                },
+                {
+                    "date": 1680076870126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -74,9 +74,9 @@\n     }\r\n \r\n     renderRows(){\r\n       let squares=[];\r\n-      for(let i=0; i<3; i++){1\r\n+      for(let i=0; i<3; i++){\r\n         squares.push(\r\n           <div className=\"board-row\">\r\n             {}\r\n           </div>    \r\n@@ -84,9 +84,9 @@\n       }\r\n     }\r\n     renderCols(rowIndex){\r\n       let squares=[];\r\n-      for(let i=0; i<3; i++){1\r\n+      for(let i=0; i<3; i++){\r\n         squares.push(\r\n           <div className=\"board-row\">\r\n             {}\r\n           </div>    \r\n"
+                },
+                {
+                    "date": 1680076897368,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,12 +77,14 @@\n       let squares=[];\r\n       for(let i=0; i<3; i++){\r\n         squares.push(\r\n           <div className=\"board-row\">\r\n-            {}\r\n+\r\n           </div>    \r\n         );\r\n       }\r\n+      return squares;  \r\n+\r\n     }\r\n     renderCols(rowIndex){\r\n       let squares=[];\r\n       for(let i=0; i<3; i++){\r\n"
+                },
+                {
+                    "date": 1680076903599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -82,10 +82,10 @@\n           </div>    \r\n         );\r\n       }\r\n       return squares;  \r\n-\r\n     }\r\n+    \r\n     renderCols(rowIndex){\r\n       let squares=[];\r\n       for(let i=0; i<3; i++){\r\n         squares.push(\r\n"
+                },
+                {
+                    "date": 1680076941732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,15 +77,15 @@\n       let squares=[];\r\n       for(let i=0; i<3; i++){\r\n         squares.push(\r\n           <div className=\"board-row\">\r\n-\r\n+            {this.renderCols(i)}\r\n           </div>    \r\n         );\r\n       }\r\n       return squares;  \r\n     }\r\n-    \r\n+\r\n     renderCols(rowIndex){\r\n       let squares=[];\r\n       for(let i=0; i<3; i++){\r\n         squares.push(\r\n"
+                },
+                {
+                    "date": 1680076952511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n       return squares;  \r\n     }\r\n \r\n     renderCols(rowIndex){\r\n-      let squares=[];\r\n+      let cols=[];\r\n       for(let i=0; i<3; i++){\r\n         squares.push(\r\n           <div className=\"board-row\">\r\n             {}\r\n"
+                },
+                {
+                    "date": 1680077007845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -87,12 +87,10 @@\n \r\n     renderCols(rowIndex){\r\n       let cols=[];\r\n       for(let i=0; i<3; i++){\r\n-        squares.push(\r\n-          <div className=\"board-row\">\r\n-            {}\r\n-          </div>    \r\n+        cols.push(\r\n+          this.renderSquare(6)};\r\n         );\r\n       }\r\n     }\r\n     \r\n"
+                },
+                {
+                    "date": 1680077053648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -88,9 +88,9 @@\n     renderCols(rowIndex){\r\n       let cols=[];\r\n       for(let i=0; i<3; i++){\r\n         cols.push(\r\n-          this.renderSquare(6)};\r\n+          this.renderSquare(rowIndex*3+i);\r\n         );\r\n       }\r\n     }\r\n     \r\n"
+                },
+                {
+                    "date": 1680077078016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -88,9 +88,9 @@\n     renderCols(rowIndex){\r\n       let cols=[];\r\n       for(let i=0; i<3; i++){\r\n         cols.push(\r\n-          this.renderSquare(rowIndex*3+i);\r\n+          this.renderSquare(rowIndex*3+i)\r\n         );\r\n       }\r\n     }\r\n     \r\n"
+                },
+                {
+                    "date": 1680077094405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -91,8 +91,9 @@\n         cols.push(\r\n           this.renderSquare(rowIndex*3+i)\r\n         );\r\n       }\r\n+      return cols;\r\n     }\r\n     \r\n   }\r\n   \r\n"
+                },
+                {
+                    "date": 1680077173541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,9 +68,9 @@\n       //   </div>\r\n       // );\r\n \r\n \r\n-      return(this.renderRows());\r\n+      return(<div>{this.renderRows()}</div>);\r\n         \r\n     }\r\n \r\n     renderRows(){\r\n"
+                },
+                {
+                    "date": 1680077210046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,9 +73,9 @@\n         \r\n     }\r\n \r\n     renderRows(){\r\n-      let squares=[];\r\n+      let rows=[];\r\n       for(let i=0; i<3; i++){\r\n         squares.push(\r\n           <div className=\"board-row\">\r\n             {this.renderCols(i)}\r\n"
+                },
+                {
+                    "date": 1680077216816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,15 +75,15 @@\n \r\n     renderRows(){\r\n       let rows=[];\r\n       for(let i=0; i<3; i++){\r\n-        squares.push(\r\n+        rows.push(\r\n           <div className=\"board-row\">\r\n             {this.renderCols(i)}\r\n           </div>    \r\n         );\r\n       }\r\n-      return squares;  \r\n+      return rows;  \r\n     }\r\n \r\n     renderCols(rowIndex){\r\n       let cols=[];\r\n"
+                },
+                {
+                    "date": 1680077385614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,9 +68,9 @@\n       //   </div>\r\n       // );\r\n \r\n \r\n-      return(<div>{this.renderRows()}</div>);\r\n+      return(<div>{this.renderRows}</div>);\r\n         \r\n     }\r\n \r\n     renderRows(){\r\n"
+                },
+                {
+                    "date": 1680077391374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,9 +68,9 @@\n       //   </div>\r\n       // );\r\n \r\n \r\n-      return(<div>{this.renderRows}</div>);\r\n+      return(<div>{this.renderRows()}</div>);\r\n         \r\n     }\r\n \r\n     renderRows(){\r\n"
+                },
+                {
+                    "date": 1680077505148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -144,8 +144,9 @@\n             <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n+            <div>{status}</div>\r\n             <ol>{moves}</ol>\r\n           </div>\r\n         </div>\r\n       );\r\n"
+                },
+                {
+                    "date": 1680077524464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -144,9 +144,9 @@\n             <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n-            <div>{status}</div>\r\n+            <div><button></button></div>\r\n             <ol>{moves}</ol>\r\n           </div>\r\n         </div>\r\n       );\r\n"
+                },
+                {
+                    "date": 1680077550806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -144,9 +144,9 @@\n             <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n-            <div><button></button></div>\r\n+            <div><button>{Aesdes}</button></div>\r\n             <ol>{moves}</ol>\r\n           </div>\r\n         </div>\r\n       );\r\n"
+                },
+                {
+                    "date": 1680077561561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -144,9 +144,9 @@\n             <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n-            <div><button>{Aesdes}</button></div>\r\n+            <div><button>{aesdes}</button></div>\r\n             <ol>{moves}</ol>\r\n           </div>\r\n         </div>\r\n       );\r\n"
+                },
+                {
+                    "date": 1680077617972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -103,8 +103,9 @@\n       this.state = {\r\n         history : [{squares:Array(9).fill(null),lastSquareIndex:-1}],\r\n         stepNumber:0,\r\n         xIsNext:true,\r\n+        aesdes:'升序',\r\n       }\r\n     }\r\n \r\n     render() {\r\n"
+                },
+                {
+                    "date": 1680077647262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -145,9 +145,9 @@\n             <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n-            <div><button>{aesdes}</button></div>\r\n+            <div><button>{this.state.aesdes}</button></div>\r\n             <ol>{moves}</ol>\r\n           </div>\r\n         </div>\r\n       );\r\n"
+                },
+                {
+                    "date": 1680077706215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -145,9 +145,9 @@\n             <Board squares={current.squares} onClick={(i)=>this.handleClick(i)}/>\r\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n-            <div><button>{this.state.aesdes}</button></div>\r\n+            <div><button onClick={()=>this.funAesdes()}>{this.state.aesdes}</button></div>\r\n             <ol>{moves}</ol>\r\n           </div>\r\n         </div>\r\n       );\r\n"
+                },
+                {
+                    "date": 1680077718340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -151,8 +151,11 @@\n           </div>\r\n         </div>\r\n       );\r\n     }\r\n+    funAesdes(){\r\n+      \r\n+    }\r\n     handleClick(i){\r\n       const history = this.state.history.slice(0,this.state.stepNumber+1);\r\n       const current = history[history.length-1];\r\n       const squares = current.squares.slice();\r\n"
+                },
+                {
+                    "date": 1680077762602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -152,9 +152,11 @@\n         </div>\r\n       );\r\n     }\r\n     funAesdes(){\r\n-      \r\n+      this.setState({\r\n+        aesdes:!this.state.aesdes,\r\n+      })\r\n     }\r\n     handleClick(i){\r\n       const history = this.state.history.slice(0,this.state.stepNumber+1);\r\n       const current = history[history.length-1];\r\n"
+                },
+                {
+                    "date": 1680077791911,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -152,8 +152,9 @@\n         </div>\r\n       );\r\n     }\r\n     funAesdes(){\r\n+      let aesdes = this.state.aesdes;\r\n       this.setState({\r\n         aesdes:!this.state.aesdes,\r\n       })\r\n     }\r\n"
+                },
+                {
+                    "date": 1680077859421,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -153,10 +153,15 @@\n       );\r\n     }\r\n     funAesdes(){\r\n       let aesdes = this.state.aesdes;\r\n+      if(aesdes==='升序'){\r\n+        aesdes ='降序'\r\n+      }else{\r\n+        aesdes ='升序'\r\n+      }\r\n       this.setState({\r\n-        aesdes:!this.state.aesdes,\r\n+        aesdes:aesdes,\r\n       })\r\n     }\r\n     handleClick(i){\r\n       const history = this.state.history.slice(0,this.state.stepNumber+1);\r\n"
+                },
+                {
+                    "date": 1680077881830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -103,9 +103,9 @@\n       this.state = {\r\n         history : [{squares:Array(9).fill(null),lastSquareIndex:-1}],\r\n         stepNumber:0,\r\n         xIsNext:true,\r\n-        aesdes:'升序',\r\n+        aesdes:'降序',\r\n       }\r\n     }\r\n \r\n     render() {\r\n"
+                },
+                {
+                    "date": 1680077948864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -132,8 +132,10 @@\n         }\r\n        \r\n       });\r\n \r\n+      moves.reverse();\r\n+\r\n       let status;\r\n       if(winner){\r\n         status = 'Winner:'+winner;\r\n       }else{\r\n"
+                },
+                {
+                    "date": 1680077988909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -132,9 +132,11 @@\n         }\r\n        \r\n       });\r\n \r\n-      moves.reverse();\r\n+      if(this.state.aesdes === '升序'){\r\n+        moves.reverse();\r\n+      }\r\n \r\n       let status;\r\n       if(winner){\r\n         status = 'Winner:'+winner;\r\n"
+                },
+                {
+                    "date": 1680078035148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -150,9 +150,9 @@\n           </div>\r\n           <div className=\"game-info\">\r\n             <div>{status}</div>\r\n             <div><button onClick={()=>this.funAesdes()}>{this.state.aesdes}</button></div>\r\n-            <ol>{moves}</ol>\r\n+            <ul>{moves}</ul>\r\n           </div>\r\n         </div>\r\n       );\r\n     }\r\n"
+                },
+                {
+                    "date": 1680078084209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -116,8 +116,10 @@\n       const moves = history.map((step,move)=>{\r\n         const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3)+1)+'行)'\r\n         : 'Go to game start';\r\n \r\n+        desc = move + '、'+ desc;\r\n+\r\n         if(this.state.stepNumber === move){\r\n           return (\r\n             <li>\r\n               <button style={{ fontWeight: 'bold' }} onClick={()=>this.jumpTo(move)}>{desc}</button>\r\n"
+                },
+                {
+                    "date": 1680078386843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,11 +111,13 @@\n     render() {\r\n       const history = this.state.history;\r\n       const current = history[this.state.stepNumber];\r\n       const winner = calculateWinner(current.squares)\r\n+      const overGame = calculateWinner(current.squares)\r\n \r\n+\r\n       const moves = history.map((step,move)=>{\r\n-        const desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3)+1)+'行)'\r\n+        let desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3)+1)+'行)'\r\n         : 'Go to game start';\r\n \r\n         desc = move + '、'+ desc;\r\n \r\n"
+                },
+                {
+                    "date": 1680078399222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,9 +111,9 @@\n     render() {\r\n       const history = this.state.history;\r\n       const current = history[this.state.stepNumber];\r\n       const winner = calculateWinner(current.squares)\r\n-      const overGame = calculateWinner(current.squares)\r\n+      const overGame = calculateOverGame(current.squares)\r\n \r\n \r\n       const moves = history.map((step,move)=>{\r\n         let desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3)+1)+'行)'\r\n"
+                },
+                {
+                    "date": 1680078427506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -110,10 +110,10 @@\n \r\n     render() {\r\n       const history = this.state.history;\r\n       const current = history[this.state.stepNumber];\r\n-      const winner = calculateWinner(current.squares)\r\n-      const overGame = calculateOverGame(current.squares)\r\n+      const winner = calculateWinner(current.squares);\r\n+      const overGame = calculateOverGame(current.squares);\r\n \r\n \r\n       const moves = history.map((step,move)=>{\r\n         let desc = move? 'Go to move #'+move + '('+(step.lastSquareIndex%3+1)+'列,'+(parseInt(step.lastSquareIndex/3)+1)+'行)'\r\n@@ -219,5 +219,9 @@\n       }\r\n     }\r\n     return null;\r\n   }\r\n+\r\n+  calculateOverGame(squares){\r\n+    \r\n+  }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1680078462053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -221,7 +221,7 @@\n     return null;\r\n   }\r\n \r\n   calculateOverGame(squares){\r\n-    \r\n+    let overGame = 0;\r\n   }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1680078535624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -221,7 +221,12 @@\n     return null;\r\n   }\r\n \r\n   calculateOverGame(squares){\r\n-    let overGame = 0;\r\n+    let fullIndex = 0;\r\n+    squares.map(value={\r\n+      if(value){\r\n+\r\n+      }\r\n+    })\r\n   }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1680078544052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -224,9 +224,9 @@\n   calculateOverGame(squares){\r\n     let fullIndex = 0;\r\n     squares.map(value={\r\n       if(value){\r\n-\r\n+        fullIndex++;\r\n       }\r\n     })\r\n   }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1680078557888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -220,9 +220,9 @@\n     }\r\n     return null;\r\n   }\r\n \r\n-  calculateOverGame(squares){\r\n+  function calculateOverGame(squares){\r\n     let fullIndex = 0;\r\n     squares.map(value={\r\n       if(value){\r\n         fullIndex++;\r\n"
+                },
+                {
+                    "date": 1680078563724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -222,9 +222,9 @@\n   }\r\n \r\n   function calculateOverGame(squares){\r\n     let fullIndex = 0;\r\n-    squares.map(value={\r\n+    squares.map(value=>{\r\n       if(value){\r\n         fullIndex++;\r\n       }\r\n     })\r\n"
+                },
+                {
+                    "date": 1680078575532,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -222,9 +222,9 @@\n   }\r\n \r\n   function calculateOverGame(squares){\r\n     let fullIndex = 0;\r\n-    squares.map(value=>{\r\n+    squares.map((value)=>{\r\n       if(value){\r\n         fullIndex++;\r\n       }\r\n     })\r\n"
+                },
+                {
+                    "date": 1680078604308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -227,6 +227,7 @@\n       if(value){\r\n         fullIndex++;\r\n       }\r\n     })\r\n+    return fullIndex===9;\r\n   }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1680078612563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -222,9 +222,9 @@\n   }\r\n \r\n   function calculateOverGame(squares){\r\n     let fullIndex = 0;\r\n-    squares.map((value)=>{\r\n+    squares.map((value,index)=>{\r\n       if(value){\r\n         fullIndex++;\r\n       }\r\n     })\r\n"
+                },
+                {
+                    "date": 1680078637632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -226,8 +226,8 @@\n     squares.map((value,index)=>{\r\n       if(value){\r\n         fullIndex++;\r\n       }\r\n-    })\r\n+    });\r\n     return fullIndex===9;\r\n   }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1680078831951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -222,8 +222,13 @@\n   }\r\n \r\n   function calculateOverGame(squares){\r\n     let fullIndex = 0;\r\n+    for(let i=0;i<squares.length;i++){\r\n+      if(squares[i]){\r\n+        fullIndex++;\r\n+      }\r\n+    }\r\n     squares.map((value,index)=>{\r\n       if(value){\r\n         fullIndex++;\r\n       }\r\n"
+                },
+                {
+                    "date": 1680078837694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -227,12 +227,7 @@\n       if(squares[i]){\r\n         fullIndex++;\r\n       }\r\n     }\r\n-    squares.map((value,index)=>{\r\n-      if(value){\r\n-        fullIndex++;\r\n-      }\r\n-    });\r\n     return fullIndex===9;\r\n   }\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1680078880781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -143,8 +143,10 @@\n \r\n       let status;\r\n       if(winner){\r\n         status = 'Winner:'+winner;\r\n+      }else if(overGame){\r\n+        \r\n       }else{\r\n         status = 'Next player:'+(this.state.xIsNext ? 'x':'o');\r\n       }\r\n       return (\r\n"
+                },
+                {
+                    "date": 1680078967416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -144,9 +144,9 @@\n       let status;\r\n       if(winner){\r\n         status = 'Winner:'+winner;\r\n       }else if(overGame){\r\n-        \r\n+        status = 'tie game';\r\n       }else{\r\n         status = 'Next player:'+(this.state.xIsNext ? 'x':'o');\r\n       }\r\n       return (\r\n"
+                },
+                {
+                    "date": 1680079190390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -222,8 +222,10 @@\n     }\r\n     return null;\r\n   }\r\n \r\n+  var winSquareIndex = null;\r\n+\r\n   function calculateOverGame(squares){\r\n     let fullIndex = 0;\r\n     for(let i=0;i<squares.length;i++){\r\n       if(squares[i]){\r\n"
+                },
+                {
+                    "date": 1680079227729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -216,8 +216,9 @@\n     ];\r\n     for (let i = 0; i < lines.length; i++) {\r\n       const [a, b, c] = lines[i];\r\n       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {\r\n+        winSquareIndex = [a,b,c];\r\n         return squares[a];\r\n       }\r\n     }\r\n     return null;\r\n"
+                },
+                {
+                    "date": 1680079240033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -201,9 +201,11 @@\n   \r\n   const root = ReactDOM.createRoot(document.getElementById(\"root\"));\r\n   root.render(<Game />);\r\n \r\n+  var winSquareIndex = null;\r\n \r\n+\r\n   function calculateWinner(squares) {\r\n     const lines = [\r\n       [0, 1, 2],\r\n       [3, 4, 5],\r\n@@ -223,9 +225,8 @@\n     }\r\n     return null;\r\n   }\r\n \r\n-  var winSquareIndex = null;\r\n \r\n   function calculateOverGame(squares){\r\n     let fullIndex = 0;\r\n     for(let i=0;i<squares.length;i++){\r\n"
+                },
+                {
+                    "date": 1680079255864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -203,9 +203,8 @@\n   root.render(<Game />);\r\n \r\n   var winSquareIndex = null;\r\n \r\n-\r\n   function calculateWinner(squares) {\r\n     const lines = [\r\n       [0, 1, 2],\r\n       [3, 4, 5],\r\n"
+                },
+                {
+                    "date": 1680079467643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,19 +10,24 @@\n     //     };\r\n     // }\r\n \r\n     render() {\r\n-      return (\r\n-        <button className=\"square\" onClick={()=>this.props.onClick()}>\r\n-          {this.props.value}\r\n-        </button>\r\n-      );\r\n+      if(this.props.value == ){\r\n+\r\n+      }else{\r\n+        return (\r\n+          <button className=\"square\" onClick={()=>this.props.onClick()}>\r\n+            {this.props.value}\r\n+          </button>\r\n+        );\r\n+      }\r\n+     \r\n     }\r\n   }\r\n   \r\n   class Board extends React.Component {\r\n     renderSquare(i) {\r\n-      return <Square value={this.props.squares[i]}\r\n+      return <Square index={i} value={this.props.squares[i]}\r\n         onClick={()=>this.props.onClick(i)}/>\r\n     }\r\n \r\n     // handleClick(i){\r\n"
+                },
+                {
+                    "date": 1680079550750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,14 @@\n     //     };\r\n     // }\r\n \r\n     render() {\r\n-      if(this.props.value == ){\r\n-\r\n+      if(winSquareIndex && (this.props.index === winSquareIndex[0] || this.props.index === winSquareIndex[1] || this.props.index === winSquareIndex[2])){\r\n+        return (\r\n+          <button className=\"square\" onClick={()=>this.props.onClick()}>\r\n+            {this.props.value}\r\n+          </button>\r\n+        );\r\n       }else{\r\n         return (\r\n           <button className=\"square\" onClick={()=>this.props.onClick()}>\r\n             {this.props.value}\r\n@@ -206,9 +210,8 @@\n   \r\n   const root = ReactDOM.createRoot(document.getElementById(\"root\"));\r\n   root.render(<Game />);\r\n \r\n-  var winSquareIndex = null;\r\n \r\n   function calculateWinner(squares) {\r\n     const lines = [\r\n       [0, 1, 2],\r\n@@ -239,5 +242,8 @@\n       }\r\n     }\r\n     return fullIndex===9;\r\n   }\r\n+\r\n+  \r\n+  var winSquareIndex = null;\r\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1680079670154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \r\n     render() {\r\n       if(winSquareIndex && (this.props.index === winSquareIndex[0] || this.props.index === winSquareIndex[1] || this.props.index === winSquareIndex[2])){\r\n         return (\r\n-          <button className=\"square\" onClick={()=>this.props.onClick()}>\r\n+          <button className=\"square\" style={{backgroundColor:'yellow'}} onClick={()=>this.props.onClick()}>\r\n             {this.props.value}\r\n           </button>\r\n         );\r\n       }else{\r\n"
+                },
+                {
+                    "date": 1680079763752,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -227,8 +227,10 @@\n       const [a, b, c] = lines[i];\r\n       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {\r\n         winSquareIndex = [a,b,c];\r\n         return squares[a];\r\n+      }else{\r\n+        winSquareIndex = null;\r\n       }\r\n     }\r\n     return null;\r\n   }\r\n"
+                }
+            ],
+            "date": 1679918129053,
+            "name": "Commit-0",
+            "content": "class Square extends React.Component {\r\n    render() {\r\n      return (\r\n        <button className=\"square\">\r\n          {/* TODO */}\r\n        </button>\r\n      );\r\n    }\r\n  }\r\n  \r\n  class Board extends React.Component {\r\n    renderSquare(i) {\r\n      return <Square />;\r\n    }\r\n  \r\n    render() {\r\n      const status = 'Next player: X';\r\n  \r\n      return (\r\n        <div>\r\n          <div className=\"status\">{status}</div>\r\n          <div className=\"board-row\">\r\n            {this.renderSquare(0)}\r\n            {this.renderSquare(1)}\r\n            {this.renderSquare(2)}\r\n          </div>\r\n          <div className=\"board-row\">\r\n            {this.renderSquare(3)}\r\n            {this.renderSquare(4)}\r\n            {this.renderSquare(5)}\r\n          </div>\r\n          <div className=\"board-row\">\r\n            {this.renderSquare(6)}\r\n            {this.renderSquare(7)}\r\n            {this.renderSquare(8)}\r\n          </div>\r\n        </div>\r\n      );\r\n    }\r\n  }\r\n  \r\n  class Game extends React.Component {\r\n    render() {\r\n      return (\r\n        <div className=\"game\">\r\n          <div className=\"game-board\">\r\n            <Board />\r\n          </div>\r\n          <div className=\"game-info\">\r\n            <div>{/* status */}</div>\r\n            <ol>{/* TODO */}</ol>\r\n          </div>\r\n        </div>\r\n      );\r\n    }\r\n  }\r\n  \r\n  // ========================================\r\n  \r\n  const root = ReactDOM.createRoot(document.getElementById(\"root\"));\r\n  root.render(<Game />);\r\n  "
+        }
+    ]
+}

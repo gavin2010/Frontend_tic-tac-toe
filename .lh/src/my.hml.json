@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/my.hml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1679917862580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1679917862580,
+            "name": "Commit-0",
+            "content": "\r\n"
+        }
+    ]
+}
